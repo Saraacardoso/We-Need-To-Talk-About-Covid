@@ -355,3 +355,18 @@ fig
 
 
 # ___________________________________________________________________________
+
+
+#SARA
+##1ª forma de traçar linhas no ggplot
+#data_vacina<-as.Date(c("2021-01-11"))
+#data_vacina<-which(mydata2$data%in%data_vacina)
+# ggplot + geom_vline(xintercept = as.numeric(mydata2$data[data_vacina]), col= "red", lwd=1)
+
+fig4<-plot(ggplot(mydata2, aes(x=data, y=internados_totais)) + 
+geom_line(color="salmon", size=1, )+ labs(title="Evolução no Nº de Doentes Internados", x="Data", y="Nº de Internados", color='red'))  + 
+geom_vline(xintercept =as.numeric(as.Date(c("2021-01-11"))), linetype= c("solid"), color = "MistyRose1",  size = 1) + 
+theme(panel.background = element_rect(fill = 'LightCyan4', colour = 'black'), panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + 
+geom_text(aes(x=mydata2[321,10], label="primeira vacina", y=5000), colour="MistyRose1", angle=90, vjust = 1.2, size=4, family = 'arial')
+fig4
+teste
